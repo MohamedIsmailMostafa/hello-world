@@ -16,7 +16,10 @@ git remote:
 	Git doesn't care what you name your remotes, but it's typical to name your main one origin.
 HEAD:
 The HEAD is a pointer that holds your position within all your different commits. By default HEAD points to your most recent commit, so it can be used as a quick way to reference that commit without having to look up the SHA.
-	
+Branches: 
+	Branchesare what naturally happens when you want to work on multiple features at the same time. You wouldn't want to end up with a master branch which has Feature A half done and Feature B half done.
+	Rather you'd separate the code base into two "snapshots" (branches) and work on and commit to them separately. As soon as one was ready, you might merge this branch back into the master branch and push it to the remote server.
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
 git remote set-url origin https://MohamedIsmailMostafa:GHSom3aa1980!@github.com/MohamedIsmailMostafa/hello-world
 
 git remote add origin https://MohamedIsmailMostafa:GHSom3aa1980!@github.com/MohamedIsmailMostafa/hello-world
@@ -29,7 +32,7 @@ git log
 	git add FileName
 - Add everything in and beneath a folder (-A make sure to include deletions)
 	git add -A .
-- Remove (Reset) file from staging area
+- unstage/Remove (Reset) file from staging area
 	git reset FileName
 - Commit from staging area to the local repo: take a snapshot of the local repo
 	git commit -m "Commit Message"
@@ -61,6 +64,21 @@ git log
 - Pull remote changes
 	- git pull REMOTE_REPO LOCAL_REPO
 	- git pull origin master
-- Show diff from last commit, which refered to using HEAD pointer
-	- git diff HEAD
+- Show diff from last commit, which refered to using HEAD pointer. it shows diff only for staged files
+	- git diff HEAD -->only for files with committed version
 	- git diff
+	- git diff --staged --> show changes to only staged files.
+	
+- revert files to latest commit state
+	git checkout -- FILE_NAME
+
+- Create a branch
+	git branch BRANCH_NAME
+- Check out from new branch -- switch to a branch
+	git checkout BRANCH_NAME
+- Create a branch and check out in single command
+	git checkout -b new_branch
+- to list branches:
+	git branch
+- remove entire folder recursively
+	git rm -r FOLDER
