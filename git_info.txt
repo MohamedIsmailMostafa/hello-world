@@ -1,0 +1,66 @@
+Git Definitions:
+================
+staged:
+	Files are ready to be committed.
+unstaged:
+	Files with changes that have not been prepared to be committed.
+untracked:
+	Files aren't tracked by Git yet. This usually indicates a newly created file.
+deleted:
+	File has been deleted and is waiting to be removed from Git.
+Staging Area:
+	A place where we can group files together before we "commit" them to Git.
+Commit
+	A "commit" is a snapshot of our repository. This way if we ever need to look back at the changes we've made (or if someone else does), we will see a nice timeline of all changes.
+git remote:
+	Git doesn't care what you name your remotes, but it's typical to name your main one origin.
+HEAD:
+The HEAD is a pointer that holds your position within all your different commits. By default HEAD points to your most recent commit, so it can be used as a quick way to reference that commit without having to look up the SHA.
+	
+git remote set-url origin https://MohamedIsmailMostafa:GHSom3aa1980!@github.com/MohamedIsmailMostafa/hello-world
+
+git remote add origin https://MohamedIsmailMostafa:GHSom3aa1980!@github.com/MohamedIsmailMostafa/hello-world
+
+git show COMMIT_ID
+git log
+- Show current status of the project:
+	git status
+- Add a file(s) to staging area
+	git add FileName
+- Add everything in and beneath a folder (-A make sure to include deletions)
+	git add -A .
+- Remove (Reset) file from staging area
+	git reset FileName
+- Commit from staging area to the local repo: take a snapshot of the local repo
+	git commit -m "Commit Message"
+- Adding several files using wildcards	
+	git add '*.txt'
+	git add *.txt
+	*Note in linux the qoutes so git recieve the wildcard.
+- to see what we changed
+	git log
+	*will show all commits
+- to see what we changed with summary
+	git log --summary
+- add a remote repository to our local repository, create the remote repo first
+	git remote add REMOTE_REPO_NAME REMOTE_REPO_URL
+	git remote add origin https://MohamedIsmailMostafa:GHSom3aa1980!@github.com/MohamedIsmailMostafa/git_try_repo.git
+- remote remote repo from local repo:
+	git remote remove REMOTE_REPO_NAME
+	git remote remove origin
+- Push: push command tells Git where to put out commits
+	- git push REMOTE_REPO_NAME LOCAL_BRANCH_NAME
+	- git push origin master
+	- git push -u origin master --> -u tells git to remember the parameters so we can run next time "git push"
+- Stash a changes of the working directory and index and go back to a clean working directory and match the HEAD commit.
+	- git stash
+	- git stash list --> to list the modifications
+	- git stash show --> to inspect them
+	- git stash apply --> to restorg
+
+- Pull remote changes
+	- git pull REMOTE_REPO LOCAL_REPO
+	- git pull origin master
+- Show diff from last commit, which refered to using HEAD pointer
+	- git diff HEAD
+	- git diff
